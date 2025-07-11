@@ -23,8 +23,8 @@ async def on_message(message):
         return
     if bot.user in message.mentions:
         user_input = message.content
-        response = ir.parse_request(user_input)
-        words = response.split(",")
+        parse_response = ir.parse_request(user_input)
+        words = parse_response.split(",")
 
         if words[0] == "ON_TOPIC":
             response = ir.generate_on_topic(user_input)
@@ -35,6 +35,11 @@ async def on_message(message):
                 response = ir.generate_off_topic(user_input)
         elif words[0] == "ERROR!":
             response = ir.generate_error(words[1])
+            
+    tag = "</think>"
+    before, sep, after = response.partition(tag)
+    if sep: 
+        response = after.lstrip()
 
     await message.channel.send(response)
 

@@ -39,7 +39,7 @@ def parse_request(user_prompt):
 
     response = requests.post(
          "http://localhost:11434/api/generate",
-        json={"model": model, "prompt": PARSE_PROMPT},
+        json={"model": "llama3", "prompt": PARSE_PROMPT},
         stream=True
     )
     answer = ""
