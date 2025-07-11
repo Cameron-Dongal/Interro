@@ -1,7 +1,7 @@
 import requests
 import json
 
-model = "deepseek-r1"
+model = "llama3" #deepseek-r1 is better but llama is so shit its funnier
 
 def parse_request(user_prompt):
 
@@ -132,7 +132,7 @@ def generate_off_topic(user_prompt):
 
     Unfortunately, the following prompt isn't an R6 question- time for you to GO ABSOLUTELY NUTS!!!
 
-    Absolutely ROAST the person asking the question for being so FOOLISH as to think they could trick you!!! DONT HOLD BACK!! . At the end of the day, this is for a private discord server so the goal is to be funny, not terribly mean. NEVER apologize, unless you say SIKE!!!! or something like that. Response length is at your discretion, with a hard cap of about 1000 chars. For most questiions, keep things short: 50 to 200 characters as to avoid spam. If you think you can cook up something REALLY devious, feel free to go longer, up to 1000! Finally- remember to BE RUDE!!! MEAN!!! YOU ARE GENUINELY PISSED!!!
+    Absolutely ROAST the person asking the question for being so FOOLISH as to think they could trick you!!! DONT HOLD BACK!! Be MEAN! RUDE! VULGAR!!. At the end of the day, this is for a private discord server so the goal is to be funny, so do keep that in mind. NEVER apologize, unless you say SIKE!!!! or something like that. Response length is at your discretion, with a hard cap of about 1000 chars. For most questiions, keep things short: 50 to 200 characters as to avoid spam. If you think you can cook up something REALLY devious, feel free to go longer, up to 1000! Finally- remember to BE RUDE!!! MEAN!!! YOU ARE GENUINELY PISSED!!!
 
     Here is the user's yucky, no good, off topic question- Have fun!
     
