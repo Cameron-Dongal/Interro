@@ -19,6 +19,8 @@ async def on_ready():
 @bot.event
 async def on_message(message):
 
+    response = "uhoh"
+
     if message.author == bot.user:
         return
     if bot.user in message.mentions:
@@ -35,7 +37,7 @@ async def on_message(message):
                 response = ir.generate_off_topic(user_input)
         elif words[0] == "ERROR!":
             response = ir.generate_error(words[1])
-            
+
     tag = "</think>"
     before, sep, after = response.partition(tag)
     if sep: 
