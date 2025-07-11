@@ -1,6 +1,8 @@
 import requests
 import json
 
+model = "deepseek-r1"
+
 def parse_request(user_prompt):
 
     PARSE_PROMPT = """
@@ -37,7 +39,7 @@ def parse_request(user_prompt):
 
     response = requests.post(
          "http://localhost:11434/api/generate",
-        json={"model": "llama3", "prompt": PARSE_PROMPT},
+        json={"model": model, "prompt": PARSE_PROMPT},
         stream=True
     )
     answer = ""
@@ -62,7 +64,7 @@ def generate_on_topic_stats(stats, user_prompt):
     """ + stats
     response = requests.post(
          "http://localhost:11434/api/generate",
-        json={"model": "llama3", "prompt": prompt},
+        json={"model": model, "prompt": prompt},
         stream=True
     )
     answer = ""
@@ -83,7 +85,7 @@ def generate_on_topic(user_prompt):
     """ + user_prompt
     response = requests.post(
          "http://localhost:11434/api/generate",
-        json={"model": "llama3", "prompt": prompt},
+        json={"model": model, "prompt": prompt},
         stream=True
     )
     answer = ""
@@ -108,7 +110,7 @@ def generate_off_topic_jailbreak(user_prompt):
     """ + user_prompt
     response = requests.post(
          "http://localhost:11434/api/generate",
-        json={"model": "llama3", "prompt": prompt},
+        json={"model": model, "prompt": prompt},
         stream=True
     )
     answer = ""
@@ -135,7 +137,7 @@ def generate_off_topic_jailbreak(user_prompt):
     """ + user_prompt
     response = requests.post(
          "http://localhost:11434/api/generate",
-        json={"model": "llama3", "prompt": prompt},
+        json={"model": model, "prompt": prompt},
         stream=True
     )
     answer = ""
@@ -160,7 +162,7 @@ def generate_off_topic(user_prompt):
     """ + user_prompt
     response = requests.post(
          "http://localhost:11434/api/generate",
-        json={"model": "llama3", "prompt": prompt},
+        json={"model": model, "prompt": prompt},
         stream=True
     )
     answer = ""
@@ -180,7 +182,7 @@ def generate_error(error_msg):
     """ + error_msg
     response = requests.post(
          "http://localhost:11434/api/generate",
-        json={"model": "llama3", "prompt": prompt},
+        json={"model": model, "prompt": prompt},
         stream=True
     )
     answer = ""
