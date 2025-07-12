@@ -19,12 +19,14 @@ async def on_ready():
 @bot.event
 async def on_message(message):
 
-    response = "uhoh"
+    
 
     if message.author == bot.user:
         return
     if bot.user in message.mentions:
+        response = "uhoh"
         user_input = message.content
+        print(user_input)
         parse_response = ir.parse_request(user_input)
         words = parse_response.split(",")
 
@@ -38,11 +40,18 @@ async def on_message(message):
         elif words[0] == "ERROR!":
             response = ir.generate_error(words[1])
 
-    tag = "</think>"
-    before, sep, after = response.partition(tag)
-    if sep: 
-        response = after.lstrip()
+        if user_input == "say that again":
+            response = ir.generate_sorry()
 
-    await message.channel.send(response)
+        tag = "</think>"
+        before, sep, after = response.partition(tag)
+        if sep: 
+            response = after.lstrip()
+
+            
+        if len(response) > 2000:
+            response = ir.truncate(response,2000)
+        await message.channel.send(response)
+
 
 bot.run(TOKEN)
